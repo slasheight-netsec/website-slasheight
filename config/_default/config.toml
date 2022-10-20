@@ -1,4 +1,4 @@
-baseURL = "slasheight-netsec.com"
+baseURL = "https://www.slasheight-netsec.com"
 title = "Hugo Zzo Theme"
 theme = "zzo"
 
