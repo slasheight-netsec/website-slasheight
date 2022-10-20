@@ -25,14 +25,15 @@ header:
     paddingY: 0
     align: center
     title:
-      - HUGO
+      - /8-NetSec
     subtitle:
-      - The world’s fastest framework for building websites
+      - Class A - Network Security Blog by Jacob Kollasch
+      - Networking, Cybersecuirty, and Automation
     titleColor: 
-    titleShadow: true
+    titleShadow: false
     titleFontSize: 44
     subtitleColor: 
-    subtitleCursive: true
+    subtitleCursive: false
     subtitleFontSize: 18
     spaceBetweenTitleSubtitle: 16
   

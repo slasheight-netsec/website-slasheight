@@ -1,14 +1,14 @@
-logoText = "Zzo"
+logoText = "/8-NetSec"
 logoType = "short" # long, short
-description = "The Zzo theme for Hugo example site."
+description = "/8-NetSec Blog by Jacob Kollasch"
 custom_css = []
 custom_js = []
-useFaviconGenerator = true # https://www.favicon-generator.org/
+useFaviconGenerator = false # https://www.favicon-generator.org/
 meta_image = ""
 themecolor = ""
 
-themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"]
-notAllowedTypesInHome = ["contact", "talks", "about", "showcase", "publication", "presentation", "resume"]
+themeOptions = ["light", "dark"]
+notAllowedTypesInHome = ["contact", "talks", "about", "showcase", "publication", "presentation", "resume", "gallery"]
 notAllowedTypesInHomeSidebar = ["about", "archive", "showcase", "publication", "presentation", "resume"]
 notAllowedTypesInArchive = ["about", "talks", "showcase", "publication", "presentation", "resume"]
 notAllowedTypesInHomeFeed = ["about", "archive", "contact", "talks", "showcase", "publication", "presentation", "resume", "gallery"]
@@ -20,7 +20,7 @@ enablePinnedPosts = true
 minItemsToShowInTagCloud = 1 # Minimum items to show in tag cloud
 
 # appbar
-enableAppbarSearchIcon = false
+enableAppbarSearchIcon = true
 enableAppbarLangIcon = false
 
 # header
@@ -60,14 +60,14 @@ publicationIcon = "📚"
 typeIcon = "🎯"
 
 # whoami
-myname = "zzossig"
-email = "zzossig@gmail.com"
-whoami = "Web Developer"
+myname = "Jacob Kollasch"
+email = "kollasch.jacob@gmail.com"
+whoami = "Network Security Engineer. CCNP Enterprise, CCNA Devnet, and Security+ certified professional. Connect with me on LinkedIn if you enjoy my work. "
 bioImageUrl = ""
 useGravatar = false
-location = "Seoul, Korea"
-organization = "Hugo"
-link = "https://zzossig.io/ko"
+location = "Minnapolis, MN"
+#organization = ""
+link = ""
 
 # sidebar
 enableBio = true
@@ -82,17 +82,17 @@ enableToc = true
 hideToc = false
 tocFolding = true
 tocPosition = "inner" # inner, outer
-enableTocSwitch = true
+enableTocSwitch = false
 itemsPerCategory = 5
 sidebarPosition = "right"
 tocLevels = ["h2", "h3", "h4"]
 enableSidebarPostsByOrder = false
 
 # footer
-showPoweredBy = true
-showFeedLinks = true
+showPoweredBy = false
+showFeedLinks = false
 showSocialLinks = true
-enableLangChange = true
+enableLangChange = false
 enableThemeChange = true
 
 # service
@@ -161,18 +161,18 @@ commento = false
   dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
 [socialOptions]
-  email = "mailto:your@email.com"
+  email = "kollasch.jacob@gmail.com"
   phone = ""
-  facebook = "http://example.org/"
-  twitter = "http://example.org/"
-  github = "https://github.com/zzossig/hugo-theme-zzo"
+  # facebook = "http://example.org/"
+  # twitter = "http://example.org/"
+  github = "https://github.com/slasheight-netsec"
   stack-overflow = ""
   instagram = ""
   google-plus = ""
   youtube = ""
   medium = ""
   tumblr = ""
-  linkedin = ""
+  linkedin = "https://www.linkedin.com/in/jacobkollasch/"
   pinterest = ""
   stack-exchange = ""
   telegram = ""
