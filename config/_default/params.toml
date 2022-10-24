@@ -65,7 +65,7 @@ email = "kollasch.jacob@gmail.com"
 whoami = "Network Security Engineer. CCNP Enterprise, CCNA Devnet, and Security+ certified professional. Connect with me on LinkedIn if you enjoy my work. "
 bioImageUrl = ""
 useGravatar = false
-location = "Minnapolis, MN"
+location = "Minneapolis, MN"
 #organization = ""
 link = ""
 
@@ -89,7 +89,7 @@ tocLevels = ["h2", "h3", "h4"]
 enableSidebarPostsByOrder = false
 
 # footer
-showPoweredBy = false
+showPoweredBy = true
 showFeedLinks = false
 showSocialLinks = true
 enableLangChange = false
