@@ -187,13 +187,13 @@ In the left hand pane you will see the file changes you have made. In the bottom
 Then in the top of the page click "Publish Repository".
 
 ## Configuring Netlify
-
+Coming soon.
 ### Linking GitHub Repository to Netlify
-
+Coming soon.
 ### Configure Netlify to Build Using HUGO
-
+Coming soon.
 ### Your Site is Live!
-
+Coming soon.
 ## Creating a Custom Domain
 
 After you create your website on Netlify you will be given a URL that anyone can type into their web browser and get to your page. However, this URL will be auto generated and will be something like [iridescent-muffin-697134.netlify.app](iridescent-muffin-697134.netlify.app). It looks like the format netlify uses to create this domain starts with a docker container name, then a random string of numbers, and ends with "netlify.app".
