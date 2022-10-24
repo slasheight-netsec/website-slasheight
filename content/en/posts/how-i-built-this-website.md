@@ -34,12 +34,12 @@ At first, I thought building a website would not be worth the trouble. Would it 
 
 I thought about using a template website like wordpress, or square space, but that felt too easy. I didn't want to have to work inside of a web browser, or pay a monthly fee to host my website. I was looking for something in between hosting my own web server, and essentially filling out an online form. Then I discovered the magic of using HUGO with Netlify, and I knew I found something worth diving into.
 
-## What is HUGO and Netlify
-### HUGO
+### What is HUGO and Netlify
+#### HUGO
 
-HUGO is a website generator that has tons of community built quality themes to help get you started. One thing I love most about HUGO is it's FAST! HUGO is also very easy to work on! Once you start to learn about how the configuration files work, and make your first post using markdown you will appreciate the simplicity and flexibility it offers.
+HUGO is a website generator that has tons of community built quality themes to help get you started. One thing I love most about HUGO is it's FAST! HUGO sites are also very easy to work with.  Once you start to learn about how the configuration files work, and make your first post using markdown you will appreciate the simplicity and flexibility it offers.
 
-### Netlify
+#### Netlify
 
 Netlify is CDN (Content Delivery Network) that will build, deploy, and host your website on the internet. Simply link your GitHub repository containing your HUGO site to your Netlify account, and it will take care of the rest. The best part of Netlify is you get a free 100GB of traffic per month. This is more then enough for a blog type website. Netlify also simplifies the certificate management process by using Let's Encrypt, so your page will be available using HTTPS.
 
@@ -89,24 +89,30 @@ Now that we have installed our theme we can use the example site as a base to ge
 
 The easiest way to do this is to copy the example site folder contents into the root of our website directory. This will replace the empty HUGO generated folders with the example site folders.
 
-You can be fancy and do this from your command line, but it's honestly going to be easier to just use your GUI file explorer. 
+Navigate to the ```/example-website/themes/zzo/exampleSite``` directory, and copy the ```config```, ```content```, ```resources```, and ```static``` folders. Paste them to the root directory of your website ```/example-website/```. You should be asked if you want to replace the folders of the same name. Select "yes". 
 
-Navigate to the "/example-website/themes/zzo/exampleSite" directory, and copy the config, content, resources, and static folders. Paste them to the root directory of your website "/example-website/". You should be asked if you want to replace the folders of the same name. Say "yes". 
+Next you want to delete the ```config.toml``` file in the root directory of your website that was created when we first built our website. 
 
-Next you want to delete the "config.toml" in the root directory of your website that was created when we first built our website. 
-
-"config.toml" is an important config file that HUGO uses to build your website. By default, HUGO looks for "config.toml" in one of two places. 
+```config.toml``` is an important config file that HUGO uses to build your website. By default, HUGO looks for ```config.toml``` in one of two places. 
 1. Root directory of the website ```/example-website/```
 2. A directory called "_default found under ```/example-website/config/```
 
 
-When we copied the example site into the websites root directory we added a new "config.toml" file to the ```config/_default``` folder, so if we don't delete the default config.toml file HUGO will use the wrong config.toml file. 
+When we copied the example site into the websites root directory we added a new ```config.toml``` file to the ```config/_default``` folder, so if we don't delete the default ```config.toml``` file HUGO will use the default file and your theme won't be used. 
 
-Okay now we are ready to build our website locally on our computer. Go back to your command line and make sure you are in the root directory of your website "/example-website/". Then run the following command:
+### Comment out the BASE URL in config.toml
+
+One important change we need to make to the config of the example site is to comment out the base URL in ```config.toml```. When you first build a website with Netlify they will give you a domain, and you can later go and configure it here, or if you use a custom domain you will want to add it to the baseURL line.
+
+For now we will just comment it out, so the site can be built. It shouldn't cause any issues with the deployment.
+
+### Testing the website locally
+
+Okay now we are ready to build our website locally on our computer. Go back to your command line and make sure you are in the root directory of your website ```/example-website/```. Then run the following command:
 
 ```hugo server```
 
-HUGO will build your website and make it available to your computers loopback address using an ephemeral port. By default it will try to use port 1313, but if you already have HUGO running it will use another port. Just look at the end of the "hugo server" output to see the URL you can use to view your new website on your local machine. For example:
+HUGO will build your website and make it available to your computers loopback address using an ephemeral port. By default it will try to use port 1313, but if you already have HUGO running it will use another port. Just look at the end of the ```hugo server``` output to see the URL you can use to view your new website on your local machine. For example:
 
 {{< highlight shell >}}
 jacob@pop-os:~/Documents/GitHub/example-website$ hugo server
@@ -136,34 +142,19 @@ Web Server is available at http://localhost:45755/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 {{< /highlight >}}
 
-This is roughly the output you received after running "hugo server". Look at the second to last line. This will tell you how to access your website. I already had HUGO running using the default 1313 port, so HUGO is used port 45755. To access my website I would enter "localhost:45755" into my browser. Now you should see ZZO example website running locally on your computer.
+This is roughly the output you received after running "hugo server". Look at the second to last line. This will tell you how to access your website. I already had HUGO running using the default 1313 port, so HUGO used port 45755. To access my website I would enter "localhost:45755" into my browser. Now you should see ZZO example website running locally on your computer.
+
+Before you make changes and start customizing your website let's get it online, so you can see understand the process.
 
 put example image here
 
-
-### Making the Example Site Your Own
-
-Now that we have our HUGO website running locally. Let's make some changes to customize the example site. I will not cover every modification you could do to your website, but I will try to cover some things I struggled with and give you an idea of what to play around with. 
-
-I would highly recommend using Vscode to work on your website. It is available on Window, macOS, and linux. VScode makes working on your website easy because of the built in file explorer and syntax highlight. 
-
-The easiest way to jump into vscode is from your command line. If you only one command line window open that is now running HUGO server. Go ahead and open another one. You want to leave HUGO server running while you work, so you can look at how HUGO is rebuilding your website as you make changes and notice any errors. From you new command line window navigate to your websites root directory and type:
-
-```code .```
-
-This command tells vscode to open this current directory. Vscode should now open.
-
-vscode opening image here
-
-
 ## Creating a GitHub Repository
 
-At this point, we have created our website using the example site template, and made a few changes. Now you will need to upload the the website to GitHub and create a repository. We will use GitHub Desktop to do so in this guide.
+At this point, we have created our website using the example site template. Now you will need to upload the the website to GitHub and create a repository. We will use GitHub Desktop to do so in this guide.
 
 ### GitHub Desktop Vs. git
 
 GitHub desktop is a GUI application that allows you to work with code repositories hosted on GitHub without having to learn how to use the git version control system. Git is a version control application that can be used from the command line to work with code repositories.
-
 
 Learning how to use git from the command line could be a lengthy writeup on it's own. [GitHub Docs](https://docs.github.com/en/get-started) is a great resource if your interested. Our goal today is to get a website running not learn git, so I would suggest doing it the easy way with GitHub Desktop for now.
 
@@ -180,29 +171,38 @@ sudo gdebi GitHubDesktop-linux-2.9.3-linux3.deb
 
 ### Adding a Repository Using GitHub Desktop
 
+At this point if you don't have a GitHub account you will need to go create one. Then you will need to sign into your GitHub account in GitHub Desktop. After you have done that you are ready to add a repository to your GitHub account.
+
 In GitHub Desktop, go to file > add local repository > select the path of your website > click "Add repository"
 
 In the left hand pane you will see the file changes you have made. In the bottom left there is a required summary field. Enter a useful summary. For example, "creating website repository". Click "Commit to master".
 
 Then in the top of the page click "Publish Repository".
 
+Now go to your GitHub account online and verify the repository has been created.
+
 ## Configuring Netlify
-Coming soon.
+
 ### Linking GitHub Repository to Netlify
-Coming soon.
+At this point you will need create an account on Netlify, and link your GitHub account. This is very straight forward, and Netlify will guide you through the process.
+
 ### Configure Netlify to Build Using HUGO
-Coming soon.
+Create a new site from the overview page of your netlify account. Select "Import an Existing Account". Chose GitHub as your git provider. Then select the repository containing your website.
+
+Now you will be prompted to configure your website "Build Settings". This is where we will tell Netlify that our website should be built using HUGO. Fill out the "Basic Build Settings" as below.
+
 ### Your Site is Live!
-Coming soon.
+At this point your website should be live on the internet. Pretty slick!
+
 ## Creating a Custom Domain
 
-After you create your website on Netlify you will be given a URL that anyone can type into their web browser and get to your page. However, this URL will be auto generated and will be something like [iridescent-muffin-697134.netlify.app](iridescent-muffin-697134.netlify.app). It looks like the format netlify uses to create this domain starts with a docker container name, then a random string of numbers, and ends with "netlify.app".
+After you create your website on Netlify you will be given a URL that anyone can type into their web browser and get to your page. However, this URL will be auto generated and will be something like [iridescent-muffin-697134.netlify.app](iridescent-muffin-697134.netlify.app).
 
 This isn't very nice if you are hoping to put your website on your resume, or have people remember your site and be able to type it into an address bar easily. If you want the URL of your website to resemble the actual name of your website. You will have to use a custom domain.
 
 Using a custom domain for your website is NOT FREE. You will need to purchase a domain or bring your own. Netlify makes it really easy to buy a domain. For example, I bought the domain for my website for $12.99 a year. Personally I think it's worth it because it make your websites address memorable and readable.
 
-## Updating your Website
+## How to Update your Website
 
 The best part about how we built this website is you can work on it from any computer with HUGO and GitHub desktop or Git installed. I would highly recommend using VSCODE to make things easier on yourself, but it's not necessary. 
 
@@ -213,7 +213,12 @@ Here is how you will do it from a high level:
 3. Commit and publish your changes to your repository just like we did earlier using GitHub Desktop. 
 4. You can view the build status same as before on Netlify, and finally your changes should be live.
 
+## Customizing your Website
+Coming Soon...
+
+I will update this section later with some more information on making your website your own. In the meantime check out the zzo documentation, and play around with the config files of your website to see what you can come up with.
+
+# Conclusion
 Have fun customizing your page, exploring new themes, and don't be afraid to break your site. I did that several times myself when learning this process. You will learn more from fixing your mistakes than you ever could reading a guide like this. 
 
 Good luck, and I hope this can help someone avoid the problems I ran into!
-
