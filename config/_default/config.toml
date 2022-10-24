@@ -1,5 +1,5 @@
 baseURL = "https://www.slasheight-netsec.com"
-title = "slasheight-netsec a network security blog by Jacob Kollasch"
+title = "/8-NetSec Blog by Jacob Kollasch"
 theme = "zzo"
 
 defaultContentLanguage = ""

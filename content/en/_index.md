@@ -28,7 +28,6 @@ header:
       - /8-NetSec
     subtitle:
       - Class A - Network Security Blog by Jacob Kollasch
-      - Networking, Cybersecuirty, and Automation
     titleColor: 
     titleShadow: false
     titleFontSize: 44

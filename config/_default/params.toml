@@ -28,7 +28,7 @@ homeHeaderType = "text" # text, img, slide, typewriter
 hideHomeHeaderWhenMobile = false
 
 # menu
-showMobileMenuTerms = ["tags", "categories", "series"]
+showMobileMenuTerms = ["tags", "categories"]
 
 # search
 enableSearch = true
@@ -200,12 +200,13 @@ commento = false
   patreon = ""
 
 # possible share name: ["facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line", "pocket", "feedly", "hatena", "pinterest", "delicious", "google"]
-[[share]]
-  name = "facebook"
-  username = ""
-[[share]]
-  name = "twitter"
-
+#[[share]]
+#  name = "facebook"
+#  username = ""
+#[[share]]
+#  name = "twitter"
+#[[share]]
+#  name = "linkedin"
 [[footerLinks]]
   name = ""
   link = ""
