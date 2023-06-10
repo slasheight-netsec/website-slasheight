@@ -15,6 +15,7 @@ tags:
 - github
 - netlify
 ---
+```
 # JACOB'S TMUX CONFIG FILE - LAST UPDATE - 3/23/23
 unbind C-b
 set-option -g prefix C-j
@@ -30,3 +31,4 @@ bind r source-file ~/.tmux.conf
 # 
 # mouse mode
 set -g mouse on
+```
