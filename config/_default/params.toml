@@ -14,7 +14,7 @@ notAllowedTypesInArchive = ["about", "talks", "showcase", "publication", "presen
 notAllowedTypesInHomeFeed = ["about", "archive", "contact", "talks", "showcase", "publication", "presentation", "resume", "gallery"]
 
 viewportSize = "normal" # widest, wider, wide, normal, narrow
-enableUiAnimation = true
+enableUiAnimation = false
 hideSingleContentsWhenJSDisabled = false
 enablePinnedPosts = true
 minItemsToShowInTagCloud = 1 # Minimum items to show in tag cloud
@@ -62,10 +62,10 @@ typeIcon = "🎯"
 # whoami
 myname = "Jacob Kollasch"
 email = "kollasch.jacob@gmail.com"
-whoami = "Network Security Engineer. CCNP Enterprise, CCNA Devnet, and Security+ certified professional. Connect with me on LinkedIn if you enjoy my work. "
+whoami = "Aspiring Network Penetration Tester. Strong background in Network Engineering. Interested in Web Application hacking, and physical security. CCNP Enterprise, and Security+ certified professional. Connect with me on LinkedIn if you enjoy my work."
 bioImageUrl = ""
 useGravatar = false
-location = "Minneapolis, MN"
+location = "Denver, CO"
 #organization = ""
 link = ""
 
@@ -89,7 +89,7 @@ tocLevels = ["h2", "h3", "h4"]
 enableSidebarPostsByOrder = false
 
 # footer
-showPoweredBy = true
+showPoweredBy = false
 showFeedLinks = false
 showSocialLinks = true
 enableLangChange = false
