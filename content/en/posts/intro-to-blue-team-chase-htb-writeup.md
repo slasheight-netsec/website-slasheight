@@ -1,7 +1,7 @@
 ---
 author: "Hugo Authors"
 title: "Intro to Blue Team - Chase HTB Writeup"
-date: 2022-10-20T12:00:06+09:00
+date: 2023-11-11T12:00:06+09:00
 description: "Quick Writeup for Hack the Boxes Chase room from the Intro to Blue Team Track"
 draft: false
 hideToc: false
