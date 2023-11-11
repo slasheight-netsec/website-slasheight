@@ -9,7 +9,7 @@ enableToc: true
 enableTocContent: true
 author: Jacob Kollasch
 authorEmoji: By
-pinned: true
+pinned: false
 tags: 
 - HTB
 - Wireshark
