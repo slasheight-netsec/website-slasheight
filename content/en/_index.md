@@ -25,9 +25,9 @@ header:
     paddingY: 0
     align: center
     title:
-      - /8-NetSec
+      - jacobkollasch.com
     subtitle:
-      - Class A - Network Security Blog by Jacob Kollasch
+      - CyberSecurity Blog by Jacob Kollasch
     titleColor: 
     titleShadow: false
     titleFontSize: 44
