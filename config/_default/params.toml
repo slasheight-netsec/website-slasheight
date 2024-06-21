@@ -1,6 +1,6 @@
 logoText = "/8-NetSec"
 logoType = "short" # long, short
-description = "/8-NetSec Blog by Jacob Kollasch"
+description = "CyberSecurity Blog by Jacob Kollasch"
 custom_css = []
 custom_js = []
 useFaviconGenerator = false # https://www.favicon-generator.org/
@@ -62,7 +62,7 @@ typeIcon = "🎯"
 # whoami
 myname = "Jacob Kollasch"
 email = "kollasch.jacob@gmail.com"
-whoami = "Aspiring Network Penetration Tester. Strong background in Network Engineering. Interested in Web Application hacking, and physical security. CCNP Enterprise, and Security+ certified professional. Connect with me on LinkedIn if you enjoy my work."
+whoami = "Aspiring SOC Analyst. Strong background in Network Engineering. CCNP Enterprise, and Security+ certified professional. Connect with me on LinkedIn if you enjoy my work."
 bioImageUrl = ""
 useGravatar = false
 location = "Denver, CO"
