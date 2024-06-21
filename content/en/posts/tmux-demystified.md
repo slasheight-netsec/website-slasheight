@@ -59,6 +59,8 @@ One last thing, if you look at the top of the ./configure file you will see a sh
 
 If we didn't include a shebang everytime we wanted to run this script we would have to run `/bin/bash ./configure`. I guess this just a bash tutorial.
 
+## Basics of TMUX
+
 ## CONFIGURATION I USE
 ```
 # JACOB'S TMUX CONFIG FILE - LAST UPDATE - 3/23/23
