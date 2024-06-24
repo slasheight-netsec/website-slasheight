@@ -1,7 +1,7 @@
 #[[main]]
 #  identifier = "about"
 #  name = "About"
-#  url = "about"
+#   url = "about"
 #  weight = 1
 
 # [[main]]
@@ -33,16 +33,16 @@
 #  url = "gallery/photo"
 
 [[main]]
-  identifier = "posts"
-  name = "Articles"
-  url = "posts"
+  identifier = "projects"
+  name = "Projects"
+  url = "projects"
   weight = 2
 
-#[[main]]
-#  identifier = "showcase"
-#  name = "Showcase"
-#  url = "showcase"
-#  weight = 6
+[[main]]
+  identifier = "knowledge-base"
+  name = "Knowledge Base"
+  url = "knowledge-base"
+  weight = 7
 
 #[[main]]
 #  identifier = "publication"

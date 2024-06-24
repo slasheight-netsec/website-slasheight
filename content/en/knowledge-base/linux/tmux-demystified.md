@@ -1,8 +1,8 @@
 ---
 author: "Hugo Authors"
-title: "TMUX demystified"
-date: 2022-06-10T12:00:00+00:00
-description: "Why TMUX is amazing, and how I configure my settings."
+title: "TMUX Basics and Configuraiton"
+date: 2024-06-21T12:00:00+00:00
+description: "TMUX commands that I find useful, and my configuratin file. Let's get multiplexing."
 draft: false
 hideToc: false
 enableToc: true
@@ -13,7 +13,6 @@ pinned: false
 tags: 
 - tmux
 - linux
-- ssh
 - productivity
 ---
 I wrote this page so everytime I forget something about TMUX I can look here. Including my current tmux config explained. TMUX So buckle up dawg because I heard you like terminals so we put some terminals inside your terminal so you have terminals inside your terminal.

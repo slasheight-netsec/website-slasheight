@@ -1,4 +1,4 @@
-logoText = "/8-NetSec"
+logoText = "Home"
 logoType = "short" # long, short
 description = "CyberSecurity Blog by Jacob Kollasch"
 custom_css = []
@@ -61,8 +61,9 @@ typeIcon = "🎯"
 
 # whoami
 myname = "Jacob Kollasch"
+myname2 = "test"
 email = "kollasch.jacob@gmail.com"
-whoami = "Aspiring SOC Analyst. Strong background in Network Engineering. CCNP Enterprise, and Security+ certified professional. Connect with me on LinkedIn if you enjoy my work."
+whoami = "Aspiring SOC Analyst. Network Engineer transitioning to CyberSecurity by becoming a SOC Analyst. CCNP and Security+ certified professional."
 bioImageUrl = ""
 useGravatar = false
 location = "Denver, CO"

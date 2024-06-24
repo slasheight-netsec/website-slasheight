@@ -8,7 +8,7 @@ links:
    link: https://google.com
 copyright: "Copyright (c) 2018 zzossig"
 title: "Good Title"
-ENTRYTYPE: "article"
+ENTRYTYPE: "Windows"
 enableToc: False
 enableWhoami: True
 pinned: true
