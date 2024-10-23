@@ -25,9 +25,9 @@ header:
     paddingY: 0
     align: center
     title:
-      - jacobkollasch.com
+      - Jacob Kollasch Homepage
     subtitle:
-      - CyberSecurity Blog by Jacob Kollasch
+      - CyberSecurity Focused Blog documenting my learning journey to becoming a SOC analyst.
     titleColor: 
     titleShadow: false
     titleFontSize: 44
