@@ -35,6 +35,22 @@ https://github.com/tmux/tmux/releases/
 
 ### Install Script Breakdown
 
+{{< codes python test>}}
+  {{< code >}}
+  ```bash
+    tar -zxf tmux-*.tar.gz
+    cd tmux-*/
+    ./configure
+    make && sudo make install
+  ```
+  {{< /code >}}
+  {{< code >}}
+  ```javascript
+  console.log('Hello World!');
+  ```
+  {{< /code >}}
+{{< /codes >}}
+
 ```
 # Run this script from the same dir you installed the tmux download if that's not obvious. You can't extract what's not there.
 tar -zxf tmux-*.tar.gz
