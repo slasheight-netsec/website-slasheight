@@ -20,21 +20,19 @@ header:
     fontColor: yellow
     
   - type: text
-    height: 200
-    paddingX: 50
+    height: 60
+    paddingX: 25
     paddingY: 0
-    align: center
+    align: left
     title:
-      - Jacob Kollasch Homepage
-    subtitle:
-      - CyberSecurity Focused Blog documenting my learning journey to becoming a SOC analyst.
+      - Recent Posts
     titleColor: 
-    titleShadow: false
+    titleShadow: True
     titleFontSize: 44
     subtitleColor: 
     subtitleCursive: false
-    subtitleFontSize: 18
-    spaceBetweenTitleSubtitle: 16
+    subtitleFontSize: 0
+    spaceBetweenTitleSubtitle: 0
   
   - type: img
     imageSrc: images/header/background.jpg
