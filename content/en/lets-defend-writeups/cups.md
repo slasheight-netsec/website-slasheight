@@ -15,28 +15,28 @@ tags:
 - github
 - netlify
 ---
-# Intro
-Let's look at this new critical alert on letsdefend that is simulating the new linux CUPS RCE vuln also known as (CVE-2024-47177). This should be a fun one because I can remember reading about 2 weeks ago after seeing a post about it on threat intelligence feed I just started trying to use. https://otx.alienvault.com/pulse/66f79d146f77699c76532842
+## Intro
+Today we are looking at this new critical alert on LetsDefend that is simulating the recently discovered linux CUPS RCE vuln. Also known as (CVE-2024-47177). This should be a fun one because I can remember reading about it for the first time about 2 weeks ago. I was playing around with otx.alienvault.com threat intelligence feed, and saw an interesting post about a new linux vulnerability. https://otx.alienvault.com/pulse/66f79d146f77699c76532842. 
 
-This post linked to the original writeup on https://www.evilsocket.net/2024/09/26/Attacking-UNIX-systems-via-CUPS-Part-I/. It was also discussed on Paul's Security Weekly Episode 845 https://www.scworld.com/podcast-segment/13202-nothing-is-safe-psw-845. 
+This post linked to the original writeup on https://www.evilsocket.net/2024/09/26/Attacking-UNIX-systems-via-CUPS-Part-I/. Then later that week it was also discussed on Paul's Security Weekly Episode 845 https://www.scworld.com/podcast-segment/13202-nothing-is-safe-psw-845. Fantastic podcast if you aren't familiar. 
 
-Very cool to now see it as an alert on letsdefend so quickly after release. Time to put some learning into practice. First, let's share some background on this CVE and everything CUPS related you need to know to understand this attack, and properly respond to this alert. 
+I love to see that LetsDefend took this vulnerability and turned into an alert so quickly. Time to put some learning into practice. First, let's share some background on this CVE and anything CUPS related that you need to know to understand this attack, and properly respond to this alert. 
 
-# Explaining CVE-2024-47177
-## NIST Awaiting Analysis
+## Explaining CVE-2024-47177
+### NIST Awaiting Analysis
 Normally I like to search the CVE if it's contained it the alert, and will check NIST first. However, this CVE is reported as "Awaiting Analysis" at time of writing. This reminds me of more recent episode of PSW (#846) where they were discussing the sheer number of CVE's reported every year (~30,000 so far in 2024), but only ~12,000 have been analyzed. Well that's pretty remarkable to have analyzed so many clearly there are more CVE's reported than can ever by addressed. There has to be some priority to what they choose, but still you wonder what could slip through the cracks. Here is the dashboard discussed. 
 https://nvd.nist.gov/general/nvd-dashboard. 
 
 Still, we get a brief description of the CVE.
 ![[Pasted image 20241012114907.png]]
 Sounds like a lack of input sanizitation leading to remote code execution, but it's vague as usual.
-## EvilSocket Writeup Deep-Dive
-### Disclosure Battle
+### EvilSocket Writeup Deep-Dive
+#### Disclosure Battle
 This article was written by the researcher who found this vulnerability and reported to the cups software maintainers. They experienced quite the headache in the disclosure process facing lots of push back from devs. I bring that up to highlight the difficulties of ethical disclosure. The researcher states they only wanted to help, but were met with an adversarial spirit from the devs. They even mention this might stop them from disclosure in the future. 
 
 Isn't this how open source software is supposed to work? Instead it's a nightmare of ego battles and diminishing of risk. 
 
-### Risk
+#### Risk
 ADD
 - Details about what linux distros are actually vulnerable
 	- Do linux server distros come with this enabled by default? Most servers don't print. Ubutnu desktop has this.
@@ -54,7 +54,7 @@ I am not trying to downplay the impact, but want to point out every linux server
 
 It's still very serious with ES claiming their scanning has yielded hundreds of thousands of vulnerable hosts on the internet at the time of writing.
 
-## Exploit High Level
+### Exploit High Level
 `CUPS` is a printing service found on most GNU/Linux distros, `cups-browsed` is a part of `CUPS` software that accepts connection from any IP address on UDP/631. 
 
 TA's setup a IPP/IPPs print server on their own infrastructure.
@@ -65,17 +65,17 @@ The printer attributes contain the code the TA wants to run on victim system. Pr
 
 When a print job is executed on the system the attacker commands are executed on the system as `Ip` user that CUPS service runs under. `Ip` user does not have elevated privileges by default.
 
-## Attack Surface
+### Attack Surface
 Local - mDNS can be abused to register a new printer or replace PPD file on existing. 
 Local/WAN - UDP/631 can be abused to register a new printer with bad PPD file from any ip address. This would include reachability over the internet if a firewall configuration exposes this port to the internet. Additionally, if NAT is configured properly this attack is not possible over the internet.  
 
-# Alert Analysis
-## Why was this alert triggered?
+## Alert Analysis
+### Why was this alert triggered?
 Activity related to the CUPS RCE (CVE-2024-47177) exploit was detected on one of our systems. IPP requests were made to UDP/631 on target which is a sign of this CVE being exploited.
 
 IPP request was made from public IP address indicating attack from the internet might be taking place causing our victim machine to reach out to the attackers infrastructure to receive commands to be executed.
 
-## Data Collection
+### Data Collection
 Let's start by looking at logs related to cups service on our host that is being targeted. Heading over to `endpoint security` section to log onto the host.
 
 `/var/log/cups` seems like a good place to look. We see numerous `access-log` files. Not sure why so many gzipped versions. Maybe they are archived log files?  
@@ -156,17 +156,17 @@ Not a good sign. Let's look at the packet capture on the desktop that we were to
 
 Here we can wee when the name of the printer they added was `NEW COLOR PRINTER` that checks out with the log message we saw in `/var/log/cups/access_log.1`. I'm assuming the log message appended the IP address that the printer can be found at.
 
-### Recap so far
+#### Recap so far
 A TA has successfully sent a request to our server causing it to add the attackers "printer" which contains malicious attributes that could lead to RCE. We have verified this by looking at CUPS logs on the targeted system, and by analyzing network traffic contained in PCAP file.
 
 We also have logs to show print job was run after malicious printer was added indicating RCE may have taken place. We don't know what commands were run by TA at this point.
 
-## More Endpoint Analysis
-### Endpoint Network Action
+### More Endpoint Analysis
+#### Endpoint Network Action
 Back to `Endpoint Security` on letsdefend let's look at `Netowrk Action` section. Here we can see the targeted server has connected to our attackers IP address 3 times within minutes from the time of alert. I don't know exactly how these three connections were triggered, or what happened. However, it is further proof this attack has been successful.
 ![[Pasted image 20241014125109.png]]
 
-### Endpoint Processes
+#### Endpoint Processes
 Looking at the `Processes` tab next, I noticed the process `foomatic-rip` to be revealing the actual commands the attacker is running using this exploit. I remember from reading the original wirteup by Evil Socket that `foomatic-rip` is the component of cups that is being abused to achieve RCE because of it's lack of input sanitization. `foomatic-rip` also has a prent procces of `cups` indicating it's a result of the cups service.
 
 I am seeing the `command line` entry containing information for a print job, but the `target proccess command line`, aka the process spawned from our foomatic-rip parent process, is showing malicious commands from the attacker.  I noticed 4 entries from `foomatic-rip` process. 3 of them seem to be run by the attacker, and 1 appears to be legitimately a result of a user printing a file.
@@ -194,7 +194,7 @@ Lastly, we can see their efforts to create a reverse shell. Interestingly, this 
 
 All of these command executions seem to be triggered when someone tried to print a document called "Important Sales Analysis Reports". Given the logs have identical values `date-time-at-processing= time-at-creation` I assume one print job kicked off all commands.
 
-## Endpoint Terminal History
+### Endpoint Terminal History
 Switching over to terminal history section we can confirm the reverse shell worked, and what commands the TA ran after getting a shell on their system.
 ![[Pasted image 20241014150651.png]]
 Here are all the commands including starting with the ghostscript test commands.
@@ -215,23 +215,23 @@ Oct 4 2024 12:13:49 - cat /etc/passwd
 Oct 4 2024 12:13:59 - cat /etc/shadow
 ```
 
-### Endpoint Containment
+#### Endpoint Containment
 At this point we need to **contain this endpoint** to prevent further actions from the TA.
 
-# Lessons Learned
-## Talk about how CVE was discovered by reading the source code
-## Talk about this wasn't known to be exploited in the wild, but do we have evidence of it getting exploited after publish of write-up?
-## How did the cyber attack happen?  
+## Lessons Learned
+### Talk about how CVE was discovered by reading the source code
+### Talk about this wasn't known to be exploited in the wild, but do we have evidence of it getting exploited after publish of write-up?
+### How did the cyber attack happen?  
 TA leveraged (CVE-2024-47177) in order to achieve RCE on vulnerable linux host. Port 631/UDP on target endpoint was exposed to the internet allowing TA to send CUPS protocol message to target causing the attackers salacious print server to be added as a printing device. The parameters in TA's malicious print service contained commands to be run on target system. They were able to execute a reverse shell using RCE achieved from vulnerable CUPs. After receiving a shell the attacker continued to run discovery commands on the the target endpoint.
 
-## What corrective actions can prevent similar incidents in the future?  
+### What corrective actions can prevent similar incidents in the future?  
 If we assume that our fake letsdefend org already knew about this CVE given we had an alert for it, then we should have taken remediation steps at that time on vulnerable hosts in our network. If no patch, we still could have made sure port 631/UDP wasn't reachable on the internet, taken steps to remove the service from hosts who didn't really need CUPS printing services, and create a process for enabling these services when needed as it's probably rare someone has to print from linux at our fake letsdefend company.
 
 Once a patch was available, systems should have been patched.
 
 SOC or security team could have done proactive scanning while waiting for resource owners to remidate and discover if they are vulnerable.
 
-# IOC's
+## IOC's
 18.217.36.165 - Attempted to exploit CUPS RCE (CVE-2024-47177)
 ![[Pasted image 20241014165732.png]]
 
