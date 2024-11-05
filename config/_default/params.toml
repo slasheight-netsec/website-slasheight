@@ -11,7 +11,7 @@ themeOptions = ["light", "dark"]
 notAllowedTypesInHome = ["contact", "talks", "about", "showcase", "publication", "presentation", "resume", "gallery"]
 notAllowedTypesInHomeSidebar = ["about", "archive", "showcase", "publication", "presentation", "resume"]
 notAllowedTypesInArchive = ["about", "talks", "showcase", "publication", "presentation", "resume"]
-notAllowedTypesInHomeFeed = ["about", "archive", "contact", "talks", "showcase", "publication", "presentation", "resume", "gallery"]
+notAllowedTypesInHomeFeed = ["homelab", "archive", "contact", "talks", "showcase", "publication", "presentation", "resume", "gallery"]
 
 viewportSize = "normal" # widest, wider, wide, normal, narrow
 enableUiAnimation = true
@@ -61,7 +61,6 @@ typeIcon = "🎯"
 
 # whoami
 myname = "Jacob Kollasch"
-myname2 = "test"
 email = "kollasch.jacob@gmail.com"
 whoami = "Aspiring SOC Analyst. Network Engineer transitioning to CyberSecurity by becoming a SOC Analyst. CCNP and Security+ certified professional."
 bioImageUrl = ""
