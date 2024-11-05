@@ -1,8 +1,8 @@
 ---
 author: "Hugo Authors"
-title: "TMUX Basics and Configuraiton"
+title: "TMUX Basics and Configuration"
 date: 2024-06-21T12:00:00+00:00
-description: "TMUX commands that I find useful, and my configuratin file. Let's get multiplexing."
+description: "TMUX commands that I find useful, and my configuration file. Let's get multiplexing."
 draft: false
 hideToc: false
 enableToc: true

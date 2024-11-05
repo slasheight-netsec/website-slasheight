@@ -36,20 +36,25 @@
   identifier = "projects"
   name = "Projects"
   url = "projects"
-  weight = 1
+  weight = 2
 
 [[main]]
   identifier = "knowledge-base"
   name = "Knowledge Base"
   url = "knowledge-base"
-  weight = 2
+  weight = 4
 
 [[main]]
-  identifier = "gallery"
+  identifier = "LetsDefend Writeups"
   name = "LetsDefend Writeups"
   url = "lets-defend-writeups"
   weight = 3
-    
+  
+[[main]]
+  identifier = "Homelab"
+  name = "Homelab"
+  url = "homelab"
+  weight = 1
 
 #[[main]]
 #  identifier = "publication"
